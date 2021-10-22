@@ -30,7 +30,7 @@ public class AddLevel : MonoBehaviour
     void OnTriggerExit() 
     {    
 
-        //LEVEL UP            
+        //LEVEL UP & (OPTIONAL) GOAL EVENT FOR EACH LEVEL UP            
         while (intervalPointsToLevelUp <= PanelScore.Score)
         {
             PanelLevel.currentLevel ++;
@@ -38,20 +38,20 @@ public class AddLevel : MonoBehaviour
             onLevelUp.Invoke();
         }
         
-        //LEVEL GOALS (OPTION)
-        if (LevelToGoal_1 <= PanelLevel.currentLevel)
+        //SPECIAL LEVEL GOALS (OPTION)
+        if (LevelToGoal_1 <= PanelLevel.currentLevel & LevelToGoal_1 != resetGoals)
         {
             onLevelGoal_1.Invoke();
             LevelToGoal_1 = resetGoals;
         }
 
-        if (LevelToGoal_2 <= PanelLevel.currentLevel)
+        if (LevelToGoal_2 <= PanelLevel.currentLevel & LevelToGoal_2 != resetGoals)
         {
             onLevelGoal_2.Invoke();
             LevelToGoal_2 = resetGoals;
         }
 
-        if (LevelToGoal_3 <= PanelLevel.currentLevel)
+        if (LevelToGoal_3 <= PanelLevel.currentLevel & LevelToGoal_3 != resetGoals)
         {
             onLevelGoal_3.Invoke();
             LevelToGoal_3 = resetGoals;
