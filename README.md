@@ -7,7 +7,7 @@
 >Add scoring system in asset by ColliderTriggerEvents.cs
 
   - Nº of points editable
-  - Add one event (optional)
+  - Add one point goal event (optional)
 
 
 ## PanelScore.cs
@@ -21,7 +21,8 @@
 >System of levels
 
   - Editable interval
-  - Add three events (optional)
+  - Add event for each level up (option)
+  - Add three special level goal events (optional)
 
 
 ## PanelLevel.cs
