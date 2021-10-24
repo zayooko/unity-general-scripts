@@ -17,6 +17,8 @@ public class AddLevel : MonoBehaviour
     public UnityEvent onLevelGoal_1;
     public UnityEvent onLevelGoal_2;
     public UnityEvent onLevelGoal_3;
+
+    bool levelUpOk;
        
 
     //START
@@ -29,29 +31,46 @@ public class AddLevel : MonoBehaviour
     //EVENT
     void OnTriggerExit() 
     {    
+        
+        levelUpOk = true;
 
-        //LEVEL UP & (OPTIONAL) GOAL EVENT FOR EACH LEVEL UP            
-        while (intervalPointsToLevelUp <= PanelScore.Score)
+
+        //GOAL EVENT FOR EACH LEVEL UP (OPTIONAL)            
+        if (intervalPointsToLevelUp <= PanelScore.Score)
         {
-            PanelLevel.currentLevel ++;
-            intervalPointsToLevelUp = intervalPointsToLevelUp + updateInterval;
-            onLevelUp.Invoke();
+            onLevelUp.Invoke();            
         }
+
+        
+        //LEVEL UP
+        while (intervalPointsToLevelUp <= PanelScore.Score && levelUpOk)
+        {
+            PanelLevel.currentLevel = (PanelScore.Score / updateInterval);
+            PanelLevel.currentLevel++;
+            intervalPointsToLevelUp = intervalPointsToLevelUp + updateInterval;
+
+            if (intervalPointsToLevelUp <= PanelScore.Score)
+            {
+                levelUpOk = false;
+            }
+        }
+
+
         
         //SPECIAL LEVEL GOALS (OPTION)
-        if (LevelToGoal_1 <= PanelLevel.currentLevel & LevelToGoal_1 != resetGoals)
+        if (LevelToGoal_1 <= PanelLevel.currentLevel && LevelToGoal_1 != resetGoals)
         {
             onLevelGoal_1.Invoke();
             LevelToGoal_1 = resetGoals;
         }
 
-        if (LevelToGoal_2 <= PanelLevel.currentLevel & LevelToGoal_2 != resetGoals)
+        if (LevelToGoal_2 <= PanelLevel.currentLevel && LevelToGoal_2 != resetGoals)
         {
             onLevelGoal_2.Invoke();
             LevelToGoal_2 = resetGoals;
         }
 
-        if (LevelToGoal_3 <= PanelLevel.currentLevel & LevelToGoal_3 != resetGoals)
+        if (LevelToGoal_3 <= PanelLevel.currentLevel && LevelToGoal_3 != resetGoals)
         {
             onLevelGoal_3.Invoke();
             LevelToGoal_3 = resetGoals;
