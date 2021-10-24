@@ -22,7 +22,7 @@ public class AddScore : MonoBehaviour
 
     
     //EVENT    
-    void OnTriggerExit() 
+    void OnTriggerEnter() 
     {
         //ADD POINTS
         PanelScore.Score += Points;
