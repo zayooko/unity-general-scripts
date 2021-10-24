@@ -34,7 +34,7 @@
 
 
 ### Notes
- Used OnTriggerExit because it seems to work better, but this part could be improved and also add tags. 
+ Used OnTriggerExit & OnTriggerEnter, but this part could be improved and also add tags. 
  
  Maybe also add tags to canvas panels.
  
