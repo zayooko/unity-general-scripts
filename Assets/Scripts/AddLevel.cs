@@ -18,9 +18,6 @@ public class AddLevel : MonoBehaviour
     public UnityEvent onLevelGoal_2;
     public UnityEvent onLevelGoal_3;
 
-    bool levelUpOk;
-       
-
     //START
     void Start()
     {
@@ -31,10 +28,6 @@ public class AddLevel : MonoBehaviour
     //EVENT
     void OnTriggerExit() 
     {    
-        
-        levelUpOk = true;
-
-
         //GOAL EVENT FOR EACH LEVEL UP (OPTIONAL)            
         if (intervalPointsToLevelUp <= PanelScore.Score)
         {
@@ -43,16 +36,11 @@ public class AddLevel : MonoBehaviour
 
         
         //LEVEL UP
-        while (intervalPointsToLevelUp <= PanelScore.Score && levelUpOk)
+        while (intervalPointsToLevelUp <= PanelScore.Score)
         {
             PanelLevel.currentLevel = (PanelScore.Score / updateInterval);
             PanelLevel.currentLevel++;
             intervalPointsToLevelUp = intervalPointsToLevelUp + updateInterval;
-
-            if (intervalPointsToLevelUp <= PanelScore.Score)
-            {
-                levelUpOk = false;
-            }
         }
 
 
