@@ -36,8 +36,9 @@ public class AddLevel : MonoBehaviour
 
         
         //LEVEL UP
-        while (intervalPointsToLevelUp <= PanelScore.Score)
+        while (intervalPointsToLevelUp <= PanelScore.Score && updateInterval != 0)
         {
+
             PanelLevel.currentLevel = (PanelScore.Score / updateInterval);
             PanelLevel.currentLevel++;
             intervalPointsToLevelUp = intervalPointsToLevelUp + updateInterval;
