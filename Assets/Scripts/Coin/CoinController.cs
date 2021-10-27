@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//sing System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class CoinController : MonoBehaviour
 {
-    
+    float timer;
     public UnityEvent onTriggerEnter;
     
-    public void OnTriggerEnter(Collider other) 
+    public async void OnTriggerEnter(Collider collision) 
     {
-        Debug.Log("Ok");
-        onTriggerEnter?.Invoke(); 
-        //Destroy(transform.parent.gameObject);
-          
-    }
+        onTriggerEnter?.Invoke();
+  
+        await Task.Delay(100);
+        Destroy(transform.parent.gameObject);
+    }    
 }
