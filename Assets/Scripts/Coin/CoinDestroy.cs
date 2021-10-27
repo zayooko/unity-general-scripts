@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+//using System.Collections;
+//using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinDestroy : MonoBehaviour
@@ -9,7 +9,7 @@ public class CoinDestroy : MonoBehaviour
         if(gameObject.transform.position.z >= 4)
         {
             //Debug.Log("Ok");
-            //Destroy(transform.parent.gameObject); 
+            Destroy(transform.parent.gameObject); 
         }    
     }
 }
