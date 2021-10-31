@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPosition : MonoBehaviour
+public class CameraPosition : MonoBehaviour
 {
      public Vector3 positionObject1;
      public Vector3 positionObject2;
